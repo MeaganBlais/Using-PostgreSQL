@@ -23,18 +23,22 @@ client.connect((err) => {
     if (err) {
       return console.error('error running query', err);
     }
-    console.log('ln25', result.rows[0].id); //output: 1
+    // console.log('ln25', result.rows[0].id); //output: 1
     console.log('ln26', result.rows);
+    // console.log('l28', result);
     // return result.rows;
-    client.end();
+    for (let row of result.rows)
+      // console.log(row);
     console.log("Found 1 person(s) by the name 'Lincoln': - ", result.rows[0].id, ": ", result.rows[0].first_name, ' ', result.rows[0].last_name, ", born", result.rows[0].birthdate)
+    client.end();
   });
 
 });
 
 // function printData(input, results) {
 // const printData = (rows) => {
-//   // for (let row of rows) {
+//   for (let row of result.rows) {
+//     console.log(result.rows)
 //   // results.rows.forEach((row) => {
 //   let row = rows[0];
 // console.log(`- ${row.id}: ${row.first_name} ${row.last_name}, born ${row.birthdate}`);
